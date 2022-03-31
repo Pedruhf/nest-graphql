@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  api:
+    container_name: nest_api
+    build: .
+    ports:
+      - 3000:3000
+
+  database:
+    container_name: nest_postgres
+    image: postgres
+    ports: 
+      - 5432:5432
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=dipirona007
+      - POSTGRES_DB=nest_graphql
